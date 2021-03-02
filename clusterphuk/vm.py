@@ -1,4 +1,6 @@
+import sys
 import subprocess
+
 from .vm_config import VMConfig
 
 class VirtualMachine:
@@ -18,4 +20,6 @@ class VirtualMachine:
         subprocess.run("bash",
                        shell=False,
                        check=True,
+                       stdout=sys.stdout,
+                       stderr=sys.stderr,
                        input=bytes(script.format(**self.config.config), encoding='utf-8'))
