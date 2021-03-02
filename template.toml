@@ -1,0 +1,23 @@
+[template]
+SetupScript = '''
+ip tuntap add {TapInterface} mode tap
+ip link set {TapInterface} up
+sleep 1
+ip link set {TapInterface} master {BridgeInterface}'''
+TeardownScript = '''
+ip link set {TapInterface} down
+ip link del {TapInterface}'''
+RunScript = '''
+qemu-system-x86_64 \
+    -nodefaults \
+    -enable-kvm \
+    -m {Memory} \
+    -cpu host \
+    -smp {Cores} \
+    -drive file=data/root.img,if=virtio \
+    {CdRom} \
+    -boot {BootDrive} \
+    -display none \
+    {Graphic} \
+    -nic tap,model=virtio,mac={MacAddress},ifname={TapInterface} \
+    -monitor unix:monitor.sock,server,nowait'''
