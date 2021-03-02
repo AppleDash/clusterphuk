@@ -1,3 +1,10 @@
 [jordin]
-Processors = 8
-Memory     = "1024M"
+Processors      = 8
+Memory          = "1024M"
+CDRom           = ""
+HardDrive       = "data/root.img"
+Boot            = "c"
+Graphic         = "-nographic -vga std"
+MacAddress      = "54:52:d4:1f:91:f2"
+TapInterface    = "tap103"
+BridgeInterface = "br0"

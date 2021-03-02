@@ -13,10 +13,10 @@ qemu-system-x86_64 \
     -enable-kvm \
     -m {Memory} \
     -cpu host \
-    -smp {Cores} \
-    -drive file=data/root.img,if=virtio \
-    {CdRom} \
-    -boot {BootDrive} \
+    -smp {Processors} \
+    -drive file={HardDrive},if=virtio \
+    {CDRom} \
+    -boot {Boot} \
     -display none \
     {Graphic} \
     -nic tap,model=virtio,mac={MacAddress},ifname={TapInterface} \

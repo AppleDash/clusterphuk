@@ -18,5 +18,4 @@ class VirtualMachine:
         subprocess.run("bash",
                        shell=False,
                        check=True,
-                       stdin=subprocess.PIPE,
                        input=script.format(**self.config.config))
