@@ -18,4 +18,4 @@ class VirtualMachine:
         subprocess.run("bash",
                        shell=False,
                        check=True,
-                       input=script.format(**self.config.config))
+                       input=bytes(script.format(**self.config.config), encoding='utf-8'))
